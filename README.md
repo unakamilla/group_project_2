@@ -1,4 +1,12 @@
 # Hópverkefni 2
+til að keyra:
+´´´
+npm install
+npm run dev
+´´´
+á eftir að setja upp stylelintrc og eslintrc
+
+# Verkefnislýsing:
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
