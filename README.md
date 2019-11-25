@@ -1,10 +1,11 @@
 # Hópverkefni 2
 til að keyra:
-´´´
+
+```sh
 npm install
 npm run dev
-´´´
-á eftir að setja upp stylelintrc og eslintrc
+```
+
 
 # Verkefnislýsing:
 
@@ -100,7 +101,7 @@ Notast skal við Git og GitHub. Engar zip skrár með kóða ættu að ganga á 
 
 Eftirfarandi er sett upp í verkefni:
 
-* `.stylelintrc` með upplýsingum um hvernig stylelint eigi að haga sér. Setja þarf upp `stylelint-config-primer` pakkann
+* `.stylelintrc` með upplýsingum um hvernig stylelint eigi að haga sér. ~~Setja þarf upp `stylelint-config-primer` pakkann~~
 * `.eslintrc` skrá sem segir til um hvernig lint fyrir JavaScript skrár skuli háttað
 * `.gitignore` sem hunsar algengar skrár, [sjá nánar](https://help.github.com/ignore-files/)
   - Allt undir `./dist` hunsað sem þýðir að það verður _ekki_ checkað inn. Það er gert vegna þess að þær skrár eru útbúnar af tólum þegar verkefni er keyrt.
@@ -117,15 +118,15 @@ Eftirfarandi er sett upp í verkefni:
   - `eslint` til að keyra eslint
   - `stylelint` til að keyra stylelint
   - `test` til að keyra bæði `eslint` og `stylelint`
-  - `browser-sync` til að keyra verkefni, bæta þarf við skrám sem vaktaðar eru
+  - `browser-sync` til að keyra verkefni, *bæta þarf við skrám sem vaktaðar eru*
   - `sass` til að keyra fyrstu þýðingu
   - `sass-watch` til að fylgjast með sass skrám og þýða
   - `dev` til að keyra `sass` og `browser-sync`
 
 Setja þarf upp
 
-* `rollup` til að pakka saman JavaScript kóða
-* `babel` til að _transpila_ kóða
+* ~~`rollup` til að pakka saman JavaScript kóða~~
+* ~~`babel` til að _transpila_ kóða~~
 
 og bæta við í tól að ofan.
 

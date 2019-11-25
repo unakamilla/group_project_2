@@ -3,3 +3,26 @@ export function empty(element) {
     element.removeChild(element.firstChild);
   }
 }
+
+/**
+ * Búa til element og aukalega setja börn ef send með
+ *
+ * @param {string} name Nafn á element
+ * @param  {...any} children Börn fyrir element
+ */
+// ------------ ATH!!! veit ekki hvort þetta virkar rétt
+export function el(name, ...children) {
+  const element = document.createElement(name);
+
+  if (Array.isArray(children)) {
+    children.forEach((child) => {
+      if (typeof child === 'string') {
+        element.appendChild(document.createTextNode(child));
+      } else if (child) {
+        element.appendChild(child);
+      }
+    });
+  }
+
+  return element;
+}
