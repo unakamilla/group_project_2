@@ -41,3 +41,8 @@ img { /* stylelint-disable-line */
     font-family: $headerfont;
   }
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}

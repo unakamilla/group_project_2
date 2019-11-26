@@ -28,6 +28,6 @@
     "rollup": "^1.27.5",
     "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^9.10.1",
-    "stylelint-config-primer": "^2.2.11"
+    "stylelint-config-primer": "^9.0.0"
   }
 }
