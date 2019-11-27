@@ -17,6 +17,10 @@ html { /* stylelint-disable-line */
   overflow-y: scroll; // alltaf hafa y skrollbar
   font-family: $mainfont;
   font-size: $fontsize;
+
+}
+main {
+
 }
 
 img { /* stylelint-disable-line */
@@ -33,13 +37,38 @@ h2 {
   font-size: 2*$fontsize;
 }
 
+h3 {
+  font-family: $headerfont;
+  font-size: 2*$fontsize;
+  width: $content-width;
+  margin: auto;
+}
+
 p {
   font-family: $mainfont;
   font-size: $fontsize;
   width: $content-width;
+  line-height: 1.5;
+  margin: auto;
 }
 
-// TODO import
+.footer__link {
+  font-family: $headerfont;
+  text-align: center;
+  margin: $gutter;
+  padding-bottom: $gutter;
+
+  & > a {
+    text-decoration: none;
+  }
+}
+
+@media (max-width:700px) {
+
+  width: 100%;
+}
+
+
 .header {
   background-image: url("../img/header.jpg");
   background-size: 100%;
@@ -60,42 +89,71 @@ p {
 .lecture-page > header {
   background-image: url("../img/code.jpg");
 }
-
 .buttons {
   display: flex;
+  margin-bottom: $gutter * 2;
   justify-content: center;
-}
+//  list-style: none;
 
-.buttons > * {
-  background-color: $lightgrey;
-  font-family: $headerfont;
-  font-weight: bold;
-  border-radius: 12px;
-  color: $black;
-  padding: $gutter/2;
-  margin: $gutter/2;
-  text-align: center;
-  display: inline-block;
-  font-size: $fontsize;
+  &__button {
+    margin-right: $gutter;
+    margin-left: $gutter;
 
-  &:hover{
-    background-color: $darkgrey;
-  }
+    font-family: $headerfont;
+    font-size: $fontsize*1.5;
+    font-weight: bold;
 
-/* virkar ekki alveg, held það skáni þegar virkni kemur með (: */
-/* gúgl segir mer að það sé skynsamlegra að breyta þessu með js */
-  &:focus{
-    background-color: $lightgreen;
-    &:hover{
-      background-color: $darkgreen;
+    background-color: #ccc;
+    border-radius: 16px;
+
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+      background-color: $darkgrey;
+    }
+
+    &--active {
+      background-color: $lightgreen;
+
+      &:hover {
+        background-color: $darkgreen;
+      }
     }
   }
 }
+// .buttons {
+//   display: flex;
+//   justify-content: center;
+// }
+//
+// .buttons > * {
+//   background-color: $lightgrey;
+//   font-family: $headerfont;
+//   font-weight: bold;
+//   border-radius: 12px;
+//   color: $black;
+//   padding: $gutter/2;
+//   margin: $gutter/2;
+//   text-align: center;
+//   display: inline-block;
+//   font-size: $fontsize;
+//
+//   &:hover{
+//     background-color: $darkgrey;
+//   }
+//
+// /* virkar ekki alveg, held það skáni þegar virkni kemur með (: */
+// /* gúgl segir mer að það sé skynsamlegra að breyta þessu með js */
+//   &:active{
+//     background-color: $lightgreen;
+//   }
+// }
+
 
 iframe {
   position: relative;
-  width: 100%;
-  max-width: $content-width;
+  width: $content-width;
+
   display: block;
   margin: 0 auto;
 }
