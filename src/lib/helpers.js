@@ -4,13 +4,6 @@ export function empty(element) {
   }
 }
 
-/**
- * Búa til element og aukalega setja börn ef send með
- *
- * @param {string} name Nafn á element
- * @param  {...any} children Börn fyrir element
- */
-// ------------ ATH!!! veit ekki hvort þetta virkar rétt
 export function el(name, ...children) {
   const element = document.createElement(name);
 
@@ -26,3 +19,5 @@ export function el(name, ...children) {
 
   return element;
 }
+
+// allt komið hér

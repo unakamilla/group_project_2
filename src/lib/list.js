@@ -1,4 +1,5 @@
-import { empty } from './helpers';
+// sækja hjálparföll
+import { el, empty } from './helpers';
 
 export default class List {
   constructor() {
