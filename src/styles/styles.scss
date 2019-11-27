@@ -15,13 +15,28 @@ html { /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
-
   font-family: $mainfont;
   font-size: $fontsize;
 }
 
 img { /* stylelint-disable-line */
   max-width: 100%;
+}
+
+h1 {
+  font-family: $headerfont;
+  font-size: $fontsize;
+}
+
+h2 {
+  font-family: $headerfont;
+  font-size: 2*$fontsize;
+}
+
+p {
+  font-family: $mainfont;
+  font-size: $fontsize;
+  width: $content-width;
 }
 
 // TODO import
@@ -33,7 +48,7 @@ img { /* stylelint-disable-line */
   &__title {
     font-family: $headerfont;
     padding-bottom: $gutter*3;
-     font-size: $fontsize*4;
+    font-size: $fontsize*4;
   }
   &__course {
     padding-top: $gutter*3;
@@ -42,7 +57,45 @@ img { /* stylelint-disable-line */
   }
 }
 
+.lecture-page > header {
+  background-image: url("../img/code.jpg");
+}
+
 .buttons {
   display: flex;
   justify-content: center;
+}
+
+.buttons > * {
+  background-color: $lightgrey;
+  font-family: $headerfont;
+  font-weight: bold;
+  border-radius: 12px;
+  color: $black;
+  padding: $gutter/2;
+  margin: $gutter/2;
+  text-align: center;
+  display: inline-block;
+  font-size: $fontsize;
+
+  &:hover{
+    background-color: $darkgrey;
+  }
+
+/* virkar ekki alveg, held það skáni þegar virkni kemur með (: */
+/* gúgl segir mer að það sé skynsamlegra að breyta þessu með js */
+  &:focus{
+    background-color: $lightgreen;
+    &:hover{
+      background-color: $darkgreen;
+    }
+  }
+}
+
+iframe {
+  position: relative;
+  width: 100%;
+  max-width: $content-width;
+  display: block;
+  margin: 0 auto;
 }
