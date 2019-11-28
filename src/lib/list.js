@@ -17,18 +17,25 @@ export default class List {
         let lectures = data.lectures;
         console.log(lectures);
         for(let lecture of lectures) {
+
           let title = el('span');
-          title.classList.add('lecture__title');
+          title.classList.add('tile__title');
+          title.innerHTML = lecture.title;
+
           let category = el('span');
-          category.classList.add('lecture__category');
+          category.classList.add('tile__category');
+          category.innnerHTML = lecture.category;
+
           let thumbnail = el('img');
           if (lecture.thumbnail) {
             thumbnail.setAttribute('src', lecture.thumbnail);
           } else {
             // setja gráan kassa eða eitthvað í staðinn fyrir myndina
           }
-          thumbnail.classList.add('lecture__thumbnail')
+          thumbnail.classList.add('tile__thumbnail');
+
           let tile = el('div', title, category, thumbnail);
+          tile.classList.add('tile');
           cont.appendChild(tile);
         }
       })
