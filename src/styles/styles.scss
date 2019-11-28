@@ -1,4 +1,5 @@
 @import "config";
+@import "lecture";
 
 * {
   padding: 0;
@@ -19,9 +20,6 @@ html { /* stylelint-disable-line */
   font-size: $fontsize;
 
 }
-main {
-
-}
 
 img { /* stylelint-disable-line */
   max-width: 100%;
@@ -37,37 +35,18 @@ h2 {
   font-size: 2*$fontsize;
 }
 
-h3 {
-  font-family: $headerfont;
-  font-size: 2*$fontsize;
-  width: $content-width;
-  margin: auto;
-}
 
-p {
-  font-family: $mainfont;
-  font-size: $fontsize;
-  width: $content-width;
-  line-height: 1.5;
-  margin: auto;
-}
 
 .footer__link {
   font-family: $headerfont;
   text-align: center;
-  margin: $gutter;
+  margin: $gutter*3;
   padding-bottom: $gutter;
 
   & > a {
     text-decoration: none;
   }
 }
-
-@media (max-width:700px) {
-
-  width: 100%;
-}
-
 
 .header {
   background-image: url("../img/header.jpg");
@@ -86,14 +65,10 @@ p {
   }
 }
 
-.lecture-page > header {
-  background-image: url("../img/code.jpg");
-}
 .buttons {
   display: flex;
   margin-bottom: $gutter * 2;
   justify-content: center;
-//  list-style: none;
 
   &__button {
     margin-right: $gutter;
@@ -105,8 +80,10 @@ p {
 
     background-color: #ccc;
     border-radius: 16px;
+    padding: $gutter/2 $gutter;
+    color: $black;
 
-    transition: background-color 300ms ease-in-out;
+    transition: background-color $trans ease-in-out;
 
     &:hover {
       background-color: $darkgrey;
@@ -120,40 +97,4 @@ p {
       }
     }
   }
-}
-// .buttons {
-//   display: flex;
-//   justify-content: center;
-// }
-//
-// .buttons > * {
-//   background-color: $lightgrey;
-//   font-family: $headerfont;
-//   font-weight: bold;
-//   border-radius: 12px;
-//   color: $black;
-//   padding: $gutter/2;
-//   margin: $gutter/2;
-//   text-align: center;
-//   display: inline-block;
-//   font-size: $fontsize;
-//
-//   &:hover{
-//     background-color: $darkgrey;
-//   }
-//
-// /* virkar ekki alveg, held það skáni þegar virkni kemur með (: */
-// /* gúgl segir mer að það sé skynsamlegra að breyta þessu með js */
-//   &:active{
-//     background-color: $lightgreen;
-//   }
-// }
-
-
-iframe {
-  position: relative;
-  width: $content-width;
-
-  display: block;
-  margin: 0 auto;
 }
