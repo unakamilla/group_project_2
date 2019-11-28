@@ -8,14 +8,33 @@ export default class Lecture {
     this.url = 'lectures.json'
   }
 
-  getLecture(slug) {
-    return fetch(this.url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('fetch virkar ekki')
-        }
+  getLectures() {
+    let cont  = this.container;
+    fetch("../lectures.json")
+      .then(function(response) {
+          if (!response.ok) {
+            throw new Error('fetch virkar ekki')
+          }
+        })
         return response.json();
       })
-      .then()
   }
-}
+
+  loadLecture() {
+    this.getLectures()
+      .then(function(data) {
+        let chosenSlug = // fatta ekki hvernig á að tengja linkinn
+        let chosenLecture = data.lectures.;
+        console.log(chosenLecture);
+
+
+        let lecture = el('div', title, category, thumbnail);
+        lecture.classList.add('lecture');
+        cont.appendChild(lecture);
+        }
+      })
+      .catch((error) => {
+        console.error('villa:', error)
+      });
+
+  }

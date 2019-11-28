@@ -6,7 +6,6 @@ export default class List {
   }
 
 
-
   makeTile() {
     let cont  = this.container;
     fetch("../lectures.json")
@@ -15,6 +14,7 @@ export default class List {
       })
       .then(function(data) {
         let lectures = data.lectures;
+        let clicked;
         console.log(lectures);
         for(let lecture of lectures) {
 
@@ -34,8 +34,9 @@ export default class List {
           }
           thumbnail.classList.add('tile__thumbnail');
 
-          let tile = el('div', title, category, thumbnail);
+          let tile = el('a', title, category, thumbnail);
           tile.classList.add('tile');
+          tile.setAttribute('href', `${lecture.slug}`) // þetta virkar ekki 
           cont.appendChild(tile);
         }
       })
