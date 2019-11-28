@@ -1,2 +1,63 @@
 // fyrir uppsetningu fyrirlestra á forsíðu, hver fyrirlestur er flexbox
 @import "config";
+.lectures{
+  display: flex;
+  flex:1;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: $max-width;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.tile {
+  display: flex;
+  width: 350px;
+  margin: $gutter/2;
+
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-color: $lightgrey;
+
+  transition: background-color $trans ease-in-out;
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &__thumbnail {
+    display: flex;
+    // align-items: center;
+    margin-top: auto;
+
+    img { /* stylelint-disable-line */
+      width: 100%;
+
+    }
+  }
+
+  &__category {
+    position: relative;
+    display: block;
+    padding: $gutter/4;
+
+    font-family: $headerfont;
+    font-size: $fontsize;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    position: relative;
+    padding: $gutter/4;
+    font-family: $headerfont;
+    font-size: $fontsize*2;
+    font-weight: bold;
+  }
+}
+@media (max-width: 720px){
+  .tile{
+      width: 100%;
+  }
+
+}

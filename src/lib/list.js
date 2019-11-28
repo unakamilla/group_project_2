@@ -24,7 +24,7 @@ export default class List {
 
           let category = el('span');
           category.classList.add('tile__category');
-          category.innnerHTML = lecture.category;
+          category.innerHTML = lecture.category;
 
           let thumbnail = el('img');
           if (lecture.thumbnail) {
@@ -34,7 +34,7 @@ export default class List {
           }
           thumbnail.classList.add('tile__thumbnail');
 
-          let tile = el('div', title, category, thumbnail);
+          let tile = el('div', thumbnail, category, title);
           tile.classList.add('tile');
           cont.appendChild(tile);
         }
