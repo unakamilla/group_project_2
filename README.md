@@ -1,13 +1,27 @@
 # Hópverkefni 2
-til að keyra:
+## Til að keyra:
 
 ```sh
 npm install
 npm run dev
 ```
 
+## Hópmeðlimir
+Verkefnið var unnið af Arnari Dofra Jónassyni (adj21@hi.is), Guðnýju Halldórsdóttur (gudnyha@hi.is) og Unu Kamillu Steinsen (uks4@hi.is).
 
-# Verkefnislýsing:
+## Almenn lýsing á síðunni
+Vefsíðan samanstendur af forsíðu (`index.html`) þar sem er yfirlit yfir alla fyrirlestrana ásamt tökkum sem filtera fyrirlestrana eftir þremur flokkum. Þegar smellt er á fyrirlestur opnast `fyrirlestur.html` með öllu innihaldsefni fyrirlestursins (texta, myndböndum og fleira) sem sótt er í `lectures.json`.
+
+`.html` skrárnar eru efst í verkefninu ásamt gagnagrunninum, `.scss` skrárnar eru ofan í `./src/styles` og `.js` skrárnar eru í `./src/lib`.
+
+## Skipulag `.scss` skráa
+
+
+## Skipulag `.js` skráa
+
+
+
+# Verkefnislýsing (upprunaleg):
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
