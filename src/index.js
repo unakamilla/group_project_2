@@ -1,4 +1,5 @@
 import List from './lib/list';
+import { el, empty } from './lib/helpers';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -11,11 +12,3 @@ document.addEventListener('DOMContentLoaded', () => {
     list.load();
   }
 });
-
-fetch("./lectures.json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    console.log(data.slug);
-  })

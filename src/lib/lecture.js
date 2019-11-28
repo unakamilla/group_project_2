@@ -1,7 +1,7 @@
-// sækja hjálparföll
 import { el, empty } from './helpers';
 // vantar að sjá um kláraða fyrirlestra
 
+// tilraun:
 export default class Lecture {
   constructor() {
     this.container = document.querySelector('.lecture');
