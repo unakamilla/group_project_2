@@ -2,12 +2,23 @@
 @import "config";
 
 .lecture-page > header {
-  background-image: url("../img/code.jpg"); // á að vera breytilegt eftir fyrirlestri code/code2
+  background-image: url("../img/code.jpg");
+  // á að vera breytilegt eftir fyrirlestri code/code2
 }
 
 .lecture {
   width: 0.66*$max-width;
   margin: auto;
+}
+
+.lecture__title {
+  font-family: $headerfont;
+  font-size: $fontsize;
+}
+
+.lecture__course{
+  font-family: $headerfont;
+  font-size: 2*$fontsize;
 }
 
 .thing {
@@ -64,10 +75,18 @@
   &__li{
     padding-top: $gutter/2;
     padding-bottom: $gutter/2;
+    line-height: 1.5;
   }
 }
-.item__alt {
-  font-style: italic;
+
+.item{
+  &__alt {
+    font-style: italic;
+  }
+  &__image {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 
