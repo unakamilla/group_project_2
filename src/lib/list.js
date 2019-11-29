@@ -19,8 +19,8 @@ export default class List {
       .then((data) => {
         /* eslint-disable */
         const lectures = data.lectures;
-        /* eslint-enable */
         for (const lecture of lectures) {
+          /* eslint-enable */
           const title = el('span', lecture.title);
           title.classList.add('tile__title');
 
@@ -42,7 +42,7 @@ export default class List {
           }
 
           const tile = el('a', thumbnail, category, title, checkmark);
-          tile.classList.add('tile');
+          tile.classList.add('tile', 'a');
           tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
           // vantar að geyma slug einhvern veginn til að nota í lecture.js
           cont.appendChild(tile);

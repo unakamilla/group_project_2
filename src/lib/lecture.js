@@ -1,4 +1,6 @@
-import { el, empty, youtube, text, list, heading, code, quote, image } from './helpers';
+import {
+  el, empty, youtube, text, list, heading, code, quote, image,
+} from './helpers';
 // vantar að sjá um kláraða fyrirlestra
 
 // tilraun:
@@ -9,34 +11,34 @@ export default class Lecture {
   }
 
   makeLecture(slug) {
-    let cont  = this.container;
-     fetch("../lectures.json")
-      .then(function(response) {
-          if (!response.ok) {
-            throw new Error('fetch virkar ekki')
-          }
-          return response.json();
+    const cont = this.container;
+    fetch('../lectures.json')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('fetch virkar ekki');
+        }
+        return response.json();
       })
-      .then(function(data) {
+      .then((data) => {
         const thisLecture = data.lectures.find(i => i.slug === slug);
         if (!thisLecture) {
           throw new Error('fann ekki fyrirlestur');
         }
         const header = cont.previousElementSibling;
-        let image = el('div');
+        const image = el('div');
         image.classList.add('lecture__header');
         if (thisLecture.image) {
           image.style.backgroundImage = `url(${thisLecture.image})`;
         }
         header.appendChild(image);
 
-        let category = el('h2', thisLecture.category);
+        const category = el('h2', thisLecture.category);
         category.classList.add('lecture__category');
         category.setAttribute('id', category);
         image.appendChild(category);
 
-        let title = el('h1', thisLecture.title);
-        title.classList.add('lecture__title')
+        const title = el('h1', thisLecture.title);
+        title.classList.add('lecture__title');
         title.setAttribute('id', title);
         image.appendChild(title);
 
@@ -70,13 +72,12 @@ export default class Lecture {
           cont.appendChild(thing);
         });
 
-        let lecture = el('div', thing);
+        const lecture = el('div', thing);
         cont.appendChild(lecture);
       })
       .catch((error) => {
         console.error('villa:', error);
       });
-
   }
 
   load() {
@@ -84,6 +85,5 @@ export default class Lecture {
     const urlslug = new URLSearchParams(window.location.search);
     const slug = urlslug.get('slug');
     this.makeLecture(slug);
-
   }
 }
