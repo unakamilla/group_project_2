@@ -19,7 +19,6 @@ export default class List {
         /* eslint-disable */
         const lectures = data.lectures;
         /* eslint-enable */
-
         for (const lecture of lectures) {
           const title = el('span', lecture.title);
           title.classList.add('tile__title');

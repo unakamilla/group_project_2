@@ -8,8 +8,10 @@
 .lecture {
   width: 66%;
   margin: auto;
+}
 
-  &__heading {
+.thing {
+  &--heading {
     width: 100%;
     font-family: $headerfont;
     font-size: 2*$fontsize;
@@ -18,7 +20,7 @@
     margin-bottom: $gutter;
   }
 
-  &__text {
+  &--text {
     width: 100%;
     font-family: $mainfont;
     font-size: $fontsize;
@@ -28,49 +30,43 @@
     line-height: 2;
   }
 
-  &__video {
+  &--youtube {
     position: relative;
     padding-bottom: 56.25%;
     align-items: center;
-
-    &__youtube {
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-    }
   }
 
-  &__quote {
-    padding: $gutter;
-    font-family: $mainfont;
-    background-color: $lightgrey;
-
-    &__data {
-      margin-bottom: $gutter;
-    }
-
-    &__attribute {
-      font-style: italic;
-    }
+  &__iframe {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
   }
 
-  &__code {
+  &__pre {
     margin-top: $gutter;
     margin-bottom: $gutter;
     font-family: $headerfont;
   }
 
-  &__list {
-    margin-bottom: $gutter;
-
-    &__item {
-      margin-bottom: $gutter;
-    }
+  &--blockquote {
+    background-color: $lightgrey;
+    background-size: 100%;
+    padding: $gutter;
   }
+
+  &__author{
+    padding-top: $gutter;
+    font-style: italic;
+  }
+
 }
 
+
+.item__alt{
+      font-style: italic;
+    }
 @media (max-width: 800px){
   .lecture{
     width: 100%;

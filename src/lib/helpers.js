@@ -23,7 +23,7 @@ export function el(name, ...children) {
 // smíða hlutina í fyrirlestur.html:
 function thing(type, ...data) {
   const stuff = el('div', ...data);
-  stuff.classList.add('thing__stuff');
+  // stuff.classList.add('thing__stuff');
   const allthethings = el('div', stuff);
   allthethings.classList.add('thing', `thing--${type}`);
   return allthethings;
@@ -44,7 +44,7 @@ export function text(data) {
   return thing('text', ...bits);
 }
 export function list(data) {
-  const item = data.map((i) =>{
+  const item = data.map((i) => {
     const li = el('li', i);
     li.classList.add('thing__li');
     return li;
