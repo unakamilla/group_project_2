@@ -1,24 +1,27 @@
 // stjórnar útliti fyrirlestranna í fyrirlestur.html
 @import "config";
 
-.lecture-page > header {
-  background-image: url("../img/code.jpg");
-  // á að vera breytilegt eftir fyrirlestri code/code2
-}
-
 .lecture {
   width: 0.66*$max-width;
   margin: auto;
-}
 
-.lecture__title {
-  font-family: $headerfont;
-  font-size: $fontsize;
-}
+  &__title {
+    padding-bottom: $gutter*3;
+    font-family: $headerfont;
+    font-size: $fontsize*4;
+  }
 
-.lecture__course{
-  font-family: $headerfont;
-  font-size: 2*$fontsize;
+  &__category{
+    padding-top: $gutter*3;
+    font-family: $headerfont;
+    font-size: 2*$fontsize;
+    text-transform: uppercase;
+  }
+  &__header {
+    // á að vera breytilegt eftir fyrirlestri code/code2
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, .6);
+    background-size: 100%;
+  }
 }
 
 .thing {
