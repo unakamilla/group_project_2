@@ -23,16 +23,22 @@ export default class Lecture {
           throw new Error('fann ekki fyrirlestur');
         }
         const header = cont.previousElementSibling;
+        let image = el('div');
+        image.classList.add('lecture__header');
+        if (thisLecture.image) {
+          image.style.backgroundImage = `url(${thisLecture.image})`;
+        }
+        header.appendChild(image);
 
         let category = el('h2', thisLecture.category);
         category.classList.add('lecture__category');
         category.setAttribute('id', category);
-        header.appendChild(category);
+        image.appendChild(category);
 
         let title = el('h1', thisLecture.title);
         title.classList.add('lecture__title')
         title.setAttribute('id', title);
-        header.appendChild(title);
+        image.appendChild(title);
 
         let thing;
         thisLecture.content.forEach((item) => {
