@@ -4,6 +4,8 @@
 ```sh
 npm install
 npm run dev
+npm run eslint
+npm run stylelint
 ```
 
 ## Hópmeðlimir

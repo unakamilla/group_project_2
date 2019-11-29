@@ -6,7 +6,6 @@ export function empty(element) {
 
 export function el(name, ...children) {
   const element = document.createElement(name);
-
   if (Array.isArray(children)) {
     children.forEach((child) => {
       if (typeof child === 'string') {
@@ -16,7 +15,6 @@ export function el(name, ...children) {
       }
     });
   }
-
   return element;
 }
 
@@ -28,12 +26,14 @@ function thing(type, ...data) {
   allthethings.classList.add('thing', `thing--${type}`);
   return allthethings;
 }
+
 export function youtube(url) {
   const iframe = el('iframe');
   iframe.classList.add('thing__iframe');
   iframe.setAttribute('src', url);
   return thing('youtube', iframe);
 }
+
 export function text(data) {
   const splitted = data.split('\n');
   const bits = splitted.map((i) => {
@@ -43,6 +43,7 @@ export function text(data) {
   });
   return thing('text', ...bits);
 }
+
 export function list(data) {
   const item = data.map((i) => {
     const li = el('li', i);
@@ -53,11 +54,13 @@ export function list(data) {
   ul.classList.add('thing__ul');
   return thing('list', ul);
 }
+
 export function heading(data) {
   const heading2 = el('h2', data);
   heading2.classList.add('thing__heading');
   return thing('heading', heading2);
 }
+
 export function code(data) {
   const pre = el('pre', data);
   pre.classList.add('thing__pre');
@@ -72,6 +75,7 @@ export function quote(data, author) {
   const blockquote = el('blockquote', quote, auth);
   return thing('blockquote', blockquote);
 }
+
 export function image(src, alt) {
   const image2 = el('img');
   image2.setAttribute('src', src);
