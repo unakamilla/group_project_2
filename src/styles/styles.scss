@@ -86,15 +86,11 @@ img { /* stylelint-disable-line */
     &:hover {
       background-color: $darkgrey;
     }
-
-    &--active {
-      background-color: $lightgreen;
-
-      &:hover {
-        background-color: $darkgreen;
-      }
-    }
   }
+}
+
+.buttonClicked {
+  background-color: $lightgreen;
 }
 
 a {

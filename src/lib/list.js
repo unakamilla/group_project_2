@@ -3,6 +3,7 @@ import { el, empty } from './helpers';
 export default class List {
   constructor() {
     this.container = document.querySelector('.lectures');
+    this.buttons = document.querySelectorAll('.buttons__button');
   }
 
 
@@ -50,6 +51,11 @@ export default class List {
       .catch((error) => {
         console.error('villa:', error);
       });
+  }
+
+  buttonClicker() {
+    const buttonToggler = document.getElementById('buttons__button');
+    buttonToggler.classList.toggle('buttonClicked');
   }
 
   load() {
