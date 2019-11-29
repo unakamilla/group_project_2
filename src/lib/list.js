@@ -10,6 +10,9 @@ export default class List {
     let cont  = this.container;
     fetch("../lectures.json")
       .then(function(response) {
+        if (!response.ok) {
+          throw new Error('fetch virkar ekki')
+        }
         return response.json();
       })
       .then(function(data) {
@@ -40,7 +43,7 @@ export default class List {
 
           let tile = el('a', thumbnail, category, title, checkmark);
           tile.classList.add('tile');
-          tile.setAttribute('href', `../fyrirlestur.html`) // virkar
+          tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`)
           // vantar að geyma slug einhvern veginn til að nota í lecture.js
           cont.appendChild(tile);
         }
