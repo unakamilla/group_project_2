@@ -33,7 +33,6 @@
 
     img { /* stylelint-disable-line */
       width: 100%;
-
     }
   }
 
@@ -55,9 +54,9 @@
     font-weight: bold;
   }
 }
-@media (max-width: 720px){
+@media (max-width: 740px){
   .tile{
-      width: 100%;
+    width: 350px;
   }
 
 }
