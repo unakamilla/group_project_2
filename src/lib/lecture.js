@@ -23,8 +23,8 @@ export default class Lecture {
   loadLecture() {
     this.getLectures()
       .then(function(data) {
-        let chosenSlug = // fatta ekki hvernig á að tengja linkinn
-        let chosenLecture = data.lectures.;
+        let chosenSlug  // sækja einhvern veginn úr list.js
+        let chosenLecture = data.lectures.chosenSlug; // veit ekki hvort þetta sé hægt
         console.log(chosenLecture);
 
 
