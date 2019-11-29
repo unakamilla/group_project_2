@@ -19,18 +19,20 @@ export default class Lecture {
       })
       .then(function(data) {
         const thisLecture = data.lectures.find(i => i.slug === slug);
-        // if (!thisLecture) {
-        //   throw new Error('fann ekki fyrirlestur');
-        // }
+        if (!thisLecture) {
+          throw new Error('fann ekki fyrirlestur');
+        }
+        const header = cont.previousElementSibling;
 
-        console.log(thisLecture);
-        console.log(thisLecture.content);
-
-        let title = el('span', data.title);
-        title.classList.add('lecture__title')
-
-        let category = el('span', data.category);
+        let category = el('h2', thisLecture.category);
         category.classList.add('lecture__category');
+        category.setAttribute('id', category);
+        header.appendChild(category);
+
+        let title = el('h1', thisLecture.title);
+        title.classList.add('lecture__title')
+        title.setAttribute('id', title);
+        header.appendChild(title);
 
         let thing;
         thisLecture.content.forEach((item) => {
@@ -60,12 +62,15 @@ export default class Lecture {
               thing = el('div', item.type);
           }
           cont.appendChild(thing);
-          console.log(thing);
         });
 
         let lecture = el('div', thing);
         cont.appendChild(lecture);
+      })
+      .catch((error) => {
+        console.error('villa:', error);
       });
+
   }
 
   load() {
