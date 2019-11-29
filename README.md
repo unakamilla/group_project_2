@@ -7,7 +7,7 @@ npm run dev
 ```
 
 ## Hópmeðlimir
-Verkefnið var unnið af Arnari Dofra Jónassyni (adj21@hi.is), Guðnýju Halldórsdóttur (gudnyha@hi.is) og Unu Kamillu Steinsen (uks4@hi.is).
+Verkefnið var unnið af Unu Kamillu Steinsen (uks4@hi.is), Guðnýju Halldórsdóttur (gudnyha@hi.is) og Arnari Dofra Jónassyni (adj21@hi.is).
 
 ## Almenn lýsing á síðunni
 Vefsíðan samanstendur af forsíðu (`index.html`) þar sem er yfirlit yfir alla fyrirlestrana ásamt tökkum sem filtera fyrirlestrana eftir þremur flokkum. Þegar smellt er á fyrirlestur opnast `fyrirlestur.html` með öllu innihaldsefni fyrirlestursins (texta, myndböndum og fleira) sem sótt er í `lectures.json`.
@@ -15,6 +15,10 @@ Vefsíðan samanstendur af forsíðu (`index.html`) þar sem er yfirlit yfir all
 `.html` skrárnar eru efst í verkefninu ásamt gagnagrunninum, `.scss` skrárnar eru ofan í `./src/styles` og `.js` skrárnar eru í `./src/lib`.
 
 ## Skipulag `.scss` skráa
+`config.scss`: heldur utan um skilgreindar stærðir.
+`index.scss`: sér um útlit yfirlitsins yfir fyrirlestrana.
+`lecture.scss`: sér um útlit síðanna fyrir fyrirlestrarna.
+`styles.scss`: sér um útlit filter-takkanna, header og footer.
 
 
 ## Skipulag `.js` skráa

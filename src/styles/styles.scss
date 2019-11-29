@@ -27,14 +27,14 @@ img { /* stylelint-disable-line */
 }
 
 .footer__link {
-  font-family: $headerfont;
   margin: $gutter*2;
+  font-family: $headerfont;
   text-align: center;
 }
 
-a {
-  text-decoration: none;
+.a {
   color: $black;
+  text-decoration: none;
 }
 
 .header {
@@ -42,7 +42,7 @@ a {
   background-repeat: no-repeat;
   background-size: 100%;
   text-align: center;
-  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, .6);
+  box-shadow: inset 0 0 1000px rgba(255, 255, 255, .6);
 
   &__title {
     padding-bottom: $gutter*3;
@@ -66,15 +66,15 @@ a {
   &__button {
     margin-right: $gutter;
     margin-left: $gutter;
+    padding: $gutter/2 $gutter;
 
     font-family: $headerfont;
     font-size: $fontsize*1.5;
     font-weight: bold;
 
     background-color: #ccc;
-    padding: $gutter/2 $gutter;
-    border-radius: 16px;
     color: $black;
+    border-radius: 16px;
 
     transition: background-color $trans ease-in-out;
 

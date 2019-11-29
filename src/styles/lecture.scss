@@ -11,36 +11,35 @@
     font-size: $fontsize*4;
   }
 
-  &__category{
+  &__category {
     padding-top: $gutter*3;
     font-family: $headerfont;
     font-size: 2*$fontsize;
     text-transform: uppercase;
   }
+
   &__header {
-    // á að vera breytilegt eftir fyrirlestri code/code2
-    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, .6);
     background-size: 100%;
+    box-shadow: inset 0 0 1000px rgba(255, 255, 255, .6);
   }
 }
 
 .thing {
   &--heading {
     width: 100%;
-    font-family: $headerfont;
-    font-size: 2*$fontsize;
     margin: auto;
     margin-top: $gutter;
     margin-bottom: $gutter;
+    font-family: $headerfont;
+    font-size: 2*$fontsize;
   }
 
   &__text {
     width: 100%;
-    font-family: $mainfont;
-    font-size: $fontsize;
-
     margin-top: $gutter;
     margin-bottom: $gutter;
+    font-family: $mainfont;
+    font-size: $fontsize;
     line-height: 2;
   }
 
@@ -51,8 +50,8 @@
   }
 
   &__iframe {
-    display: block;
     position: absolute;
+    display: block;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -65,9 +64,9 @@
   }
 
   &--blockquote {
+    padding: $gutter;
     background-color: $lightgrey;
     background-size: 100%;
-    padding: $gutter;
   }
 
   &__author {
@@ -75,26 +74,26 @@
     font-style: italic;
   }
 
-  &__li{
+  &__li {
     padding-top: $gutter/2;
     padding-bottom: $gutter/2;
     line-height: 1.5;
   }
 }
 
-.item{
+.item {
   &__alt {
     font-style: italic;
   }
+
   &__image {
     width: 100%;
     text-align: center;
   }
 }
 
-
-@media (max-width: 800px){
-  .lecture{
+@media (max-width: 800px) {
+  .lecture {
     width: 100%;
     padding: $gutter;
     margin: auto;

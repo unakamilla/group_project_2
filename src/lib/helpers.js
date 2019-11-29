@@ -53,30 +53,30 @@ export function list(data) {
   ul.classList.add('thing__ul');
   return thing('list', ul);
 }
-export function heading(text) {
-  const heading = el('h2', text);
-  heading.classList.add('thing__heading');
-  return thing('heading', heading);
+export function heading(data) {
+  const heading2 = el('h2', data);
+  heading2.classList.add('thing__heading');
+  return thing('heading', heading2);
 }
-export function code(code) {
-  const pre = el('pre', code);
+export function code(data) {
+  const pre = el('pre', data);
   pre.classList.add('thing__pre');
   return thing('pre', pre);
-
 }
-export function quote(text, author) {
-  const quote = el('p', text);
-  quote.classList.add('thing__quote');
+
+export function quote(data, author) {
+  const quote2 = el('p', data);
+  quote2.classList.add('thing__quote');
   const auth = el('p', author);
   auth.classList.add('thing__author');
   const blockquote = el('blockquote', quote, auth);
   return thing('blockquote', blockquote);
 }
 export function image(src, alt) {
-  const image = el('img');
-  image.setAttribute('src', src);
-  image.setAttribute('alt', alt);
-  image.classList.add('item__image');
+  const image2 = el('img');
+  image2.setAttribute('src', src);
+  image2.setAttribute('alt', alt);
+  image2.classList.add('item__image');
   const caption = el('p', alt);
   caption.classList.add('item__alt');
   const both = el('div', image, caption);
