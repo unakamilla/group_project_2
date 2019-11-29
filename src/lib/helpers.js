@@ -36,25 +36,49 @@ export function youtube(url) {
 }
 export function text(data) {
   const splitted = data.split('\n');
-  for (let splitbit in splitted) {
-    const p = el('p', splitbit);
+  const bits = splitted.map((i) => {
+    const p = el('p', i);
     p.classList.add('thing__text');
     return p;
-  }
-  return thing('text', ...splitbit);
+  });
+  return thing('text', ...bits);
 }
 export function list(data) {
+  const item = data.map((i) =>{
+    const li = el('li', i);
+    li.classList.add('thing__li');
+    return li;
+  });
+  const ul = el('ul', ...item);
+  ul.classList.add('thing__ul');
+  return thing('list', ul);
+}
+export function heading(text) {
+  const heading = el('h2', text);
+  heading.classList.add('thing__heading');
+  return thing('heading', heading);
+}
+export function code(code) {
+  const pre = el('pre', code);
+  pre.classList.add('thing__pre');
+  return thing('pre', pre);
 
 }
-export function heading(url) {
-
+export function quote(text, author) {
+  const quote = el('p', text);
+  quote.classList.add('thing__quote');
+  const auth = el('p', author);
+  auth.classList.add('thing__author');
+  const blockquote = el('blockquote', quote, auth);
+  return thing('blockquote', blockquote);
 }
-export function code(url) {
-
-}
-export function quote() {
-
-}
-export function image(url) {
-
+export function image(src, alt) {
+  const image = el('img');
+  image.setAttribute('src', src);
+  image.setAttribute('alt', alt);
+  image.classList.add('item__image');
+  const caption = el('p', alt);
+  caption.classList.add('item__alt');
+  const both = el('div', image, caption);
+  return thing('image', both);
 }

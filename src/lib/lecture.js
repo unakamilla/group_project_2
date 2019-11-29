@@ -1,4 +1,4 @@
-import { el, empty } from './helpers';
+import { el, empty, youtube, text, list, heading, code, quote, image } from './helpers';
 // vantar að sjá um kláraða fyrirlestra
 
 // tilraun:
@@ -18,8 +18,9 @@ export default class Lecture {
           return response.json();
       })
       .then(function(data) {
-        slug = data.lectures.find(i => i.slug);
-        console.log(slug);
+        data = data.lectures.find(i => i.slug);
+        console.log(data.slug);
+        console.log(data.content);
 
         let title = el('span', data.title);
         title.classList.add('lecture__title')
@@ -27,36 +28,38 @@ export default class Lecture {
         let category = el('span', data.category);
         category.classList.add('lecture__category');
 
-        for (let thing in data.content) {
-          switch (thing.type) {
+        let thing;
+        data.content.forEach((item) => {
+          switch (item.type) {
             case 'youtube':
-              thing = youtube(thing.data);
+              thing = youtube(item.data);
               break;
             case 'text':
-              thing = text(thing.data);
+              thing = text(item.data);
               break;
             case 'list':
-              thing = list(thing.data);
+              thing = list(item.data);
               break;
             case 'heading':
-              thing = heading(thing.data);
+              thing = heading(item.data);
               break;
             case 'code':
-              thing = code(thing.data);
+              thing = code(item.data);
               break;
             case 'quote':
-              thing = quote(thing.data, thing.attribute);
+              thing = quote(item.data, item.attribute);
               break;
             case 'image':
-              thing = image(thing.data, thing.caption);
+              thing = image(item.data, item.caption);
               break;
             default:
-              thing = el('div', thing.type);
+              thing = el('div', item.type);
           }
+          cont.appendChild(thing);
+          console.log(thing);
+        });
 
-        }
-
-        let lecture = el('div', 'placeholder');
+        let lecture = el('div', thing);
         cont.appendChild(lecture);
       });
   }
