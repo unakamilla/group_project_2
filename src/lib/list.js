@@ -44,7 +44,6 @@ export default class List {
           const tile = el('a', thumbnail, category, title, checkmark);
           tile.classList.add('tile');
           tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
-          // vantar að geyma slug einhvern veginn til að nota í lecture.js
           cont.appendChild(tile);
         }
       })
@@ -52,14 +51,29 @@ export default class List {
         console.error('villa:', error);
       });
   }
-
-  buttonClicker() {
-    const buttonToggler = document.getElementById('buttons__button');
-    buttonToggler.classList.toggle('buttonClicked');
+  filterLectures(data) {
+    const clickedButtons = Array.from(this.buttons)
+      .button(i => i.classList.contains('buttonClicked'))
+      .map(i => i.dataset.category);
+    return data.button();
   }
+  toggleButton(e) {
+    const { target } = e;
+    target.classList.toggle('buttonClicked');
+      // .then render only active tiles
+    // this.makeTile()
+    // console.log(this.filterLectures(lecture));
+    }
+  buttonClicker() {
+    this.buttons.forEach((button) => {
+      button.addEventListener('click', this.toggleButton.bind(this));
+    });
+  }
+
 
   load() {
     empty(this.container);
     this.makeTile();
+    this.buttonClicker();
   }
 }
