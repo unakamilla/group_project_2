@@ -26,43 +26,39 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
-h1 {
+.header__title {
   font-family: $headerfont;
   font-size: $fontsize;
 }
 
-h2 {
+.header__course{
   font-family: $headerfont;
   font-size: 2*$fontsize;
 }
 
 .footer__link {
   font-family: $headerfont;
-  text-align: center;
   margin: $gutter*2;
-
-  & > a {
-    text-decoration: none;
-  }
+  text-align: center;
 }
 
 .header {
   background-image: url("../img/header.jpg");
-  background-size: 100%;
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.6);
+  background-size: 100%;
   text-align: center;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, .6);
 
   &__title {
-    font-family: $headerfont;
     padding-bottom: $gutter*3;
+    font-family: $headerfont;
     font-size: $fontsize*4;
   }
 
   &__course {
     padding-top: $gutter*3;
-    text-transform: uppercase;
     font-family: $headerfont;
+    text-transform: uppercase;
   }
 }
 
@@ -81,8 +77,8 @@ h2 {
     font-weight: bold;
 
     background-color: #ccc;
-    border-radius: 16px;
     padding: $gutter/2 $gutter;
+    border-radius: 16px;
     color: $black;
 
     transition: background-color $trans ease-in-out;

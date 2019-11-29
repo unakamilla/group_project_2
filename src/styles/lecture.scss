@@ -5,66 +5,67 @@
   background-image: url("../img/code.jpg"); // á að vera breytilegt eftir fyrirlestri code/code2
 }
 
-.lecture{
+.lecture {
   width: 66%;
   margin: auto;
 
   &__heading {
+    width: 100%;
     font-family: $headerfont;
     font-size: 2*$fontsize;
-    width: 100%;
     margin: auto;
     margin-top: $gutter;
     margin-bottom: $gutter;
   }
 
   &__text {
+    width: 100%;
     font-family: $mainfont;
     font-size: $fontsize;
-    width: 100%;
-    line-height: 2;
+
     margin: auto;
     margin-bottom: $gutter;
+    line-height: 2;
   }
 
-  &__video{
+  &__video {
     position: relative;
     padding-bottom: 56.25%;
     align-items: center;
 
     &__youtube {
+      display: block;
       position: absolute;
       width: 100%;
       height: 100%;
-      display: block;
       margin: 0 auto;
     }
   }
 
-  &__quote{
-    font-family: $mainfont;
+  &__quote {
     padding: $gutter;
+    font-family: $mainfont;
     background-color: $lightgrey;
 
-    &__data{
+    &__data {
       margin-bottom: $gutter;
     }
 
-    &__attribute{
+    &__attribute {
       font-style: italic;
     }
   }
 
   &__code {
-    margin-bottom: $gutter;
     margin-top: $gutter;
+    margin-bottom: $gutter;
     font-family: $headerfont;
   }
 
-  &__list{
+  &__list {
     margin-bottom: $gutter;
 
-    &__item{
+    &__item {
       margin-bottom: $gutter;
     }
   }
@@ -73,7 +74,7 @@
 @media (max-width: 800px){
   .lecture{
     width: 100%;
-    margin: auto;
     padding: $gutter;
+    margin: auto;
   }
 }

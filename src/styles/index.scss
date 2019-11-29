@@ -1,11 +1,12 @@
 // fyrir uppsetningu fyrirlestra á forsíðu, hver fyrirlestur er flexbox
 @import "config";
-.lectures{
+
+.lectures {
   display: flex;
-  flex:1;
+  flex: 1;
   flex-wrap: wrap;
-  margin: 0 auto;
   max-width: $max-width;
+  margin: 0 auto;
   justify-content: space-around;
   flex-direction: row;
 }
@@ -54,8 +55,8 @@
     font-weight: bold;
   }
 }
-@media (max-width: 740px){
-  .tile{
+@media (max-width: 740px) {
+  .tile {
     width: 350px;
   }
 
