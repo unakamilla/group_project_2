@@ -18,6 +18,9 @@ Vefsíðan samanstendur af forsíðu (`index.html`) þar sem er yfirlit yfir all
 
 
 ## Skipulag `.js` skráa
+`helpers.js`: hjálparföll til að smíða element.
+`lecture.js`: smíðar og birtir valinn fyrirlestur á síðunni fyrirlestur.html eftir að smellt er á viðkomandi reit á forsíðu.
+`list.js`: smíðar og birtir reiti á forsíðu. Reitirnir eru hlekkir sem vísa á síðu viðkomandi fyrirlesturs sem `lecture.js` býr til.
 
 
 

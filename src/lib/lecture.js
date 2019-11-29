@@ -19,6 +19,9 @@ export default class Lecture {
       })
       .then(function(data) {
         data = data.lectures.find(i => i.slug);
+        if (!data) {
+          throw new Error('fann ekki fyrirlestur');
+        }
         console.log(data.slug);
         console.log(data.content);
 
