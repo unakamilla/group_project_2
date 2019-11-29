@@ -6,36 +6,45 @@ export default class List {
   }
 
 
-
   makeTile() {
     let cont  = this.container;
     fetch("../lectures.json")
       .then(function(response) {
+        if (!response.ok) {
+          throw new Error('fetch virkar ekki')
+        }
         return response.json();
       })
       .then(function(data) {
         let lectures = data.lectures;
+        let clicked;
         console.log(lectures);
         for(let lecture of lectures) {
 
-          let title = el('span');
+          let title = el('span', lecture.title);
           title.classList.add('tile__title');
-          title.innerHTML = lecture.title;
 
-          let category = el('span');
+          let category = el('span', lecture.category);
           category.classList.add('tile__category');
-          category.innerHTML = lecture.category;
 
           let thumbnail = el('img');
           if (lecture.thumbnail) {
             thumbnail.setAttribute('src', lecture.thumbnail);
           } else {
-            // setja gráan kassa eða eitthvað í staðinn fyrir myndina
+            // css sér um að setja gráan bakgrunn
           }
           thumbnail.classList.add('tile__thumbnail');
 
-          let tile = el('div', thumbnail, category, title);
+          let checkmark = el('span');
+          checkmark.classList.add('tile__checkmark');
+          if (lecture.finished) {
+            checkmark.innerHTML = "✓"
+          }
+
+          let tile = el('a', thumbnail, category, title, checkmark);
           tile.classList.add('tile');
+          tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`)
+          // vantar að geyma slug einhvern veginn til að nota í lecture.js
           cont.appendChild(tile);
         }
       })
