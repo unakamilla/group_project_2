@@ -18,12 +18,13 @@ export default class Lecture {
           return response.json();
       })
       .then(function(data) {
-        data = data.lectures.find(i => i.slug);
-        if (!data) {
-          throw new Error('fann ekki fyrirlestur');
-        }
-        console.log(data.slug);
-        console.log(data.content);
+        const thisLecture = data.lectures.find(i => i.slug === slug);
+        // if (!thisLecture) {
+        //   throw new Error('fann ekki fyrirlestur');
+        // }
+
+        console.log(thisLecture);
+        console.log(thisLecture.content);
 
         let title = el('span', data.title);
         title.classList.add('lecture__title')
@@ -32,7 +33,7 @@ export default class Lecture {
         category.classList.add('lecture__category');
 
         let thing;
-        data.content.forEach((item) => {
+        thisLecture.content.forEach((item) => {
           switch (item.type) {
             case 'youtube':
               thing = youtube(item.data);
@@ -69,7 +70,9 @@ export default class Lecture {
 
   load() {
     empty(this.container);
-    this.makeLecture();
+    const urlslug = new URLSearchParams(window.location.search);
+    const slug = urlslug.get('slug');
+    this.makeLecture(slug);
 
   }
 }
