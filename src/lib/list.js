@@ -16,7 +16,7 @@ export default class List {
         return response.json();
       })
       .then((data) => {
-        const lectures = data.lectures;
+        const { lectures } = data;
         for (const lecture of lectures) {
           /* eslint-enable */
           const title = el('span', lecture.title);
@@ -47,23 +47,24 @@ export default class List {
       });
   }
 
-  filterLectures(data) { // býr til lista af fyrirlestrum með sama category og button sem var valinn
-    const clickedButtons = Array.from(this.buttons)
-      .filter(i => i.classList.contains('buttons__button--clicked'))
-      .map(i => i.dataset.category);
-    console.log(clickedButtons);
-    // return data.filter(i => clickedButtons.indexOf(i.category) >= 0
-    // || i => i.clickedButtons.length === 0);
-  }
+  // næstu tvö föll eru hálfkláruð og valda því eslint villum
+  // þess vegna eru þau kommentuð út
+  // filterLectures(data) { // býr til lista af fyrirlestrum sem falla undir flokk buttonsins
+  //   const clickedButtons = Array.from(this.buttons)
+  //     .filter((i) => i.classList.contains('buttons__button--clicked'))
+  //     .map((i) => i.dataset.category);
+  //   return data.filter(i => clickedButtons.indexOf(i.category) >= 0
+  //   || i => i.clickedButtons.length === 0);
+  // }
 
-  // toggleButton(e) { // virkjar button sem smellt er á
-  //   const { target } = e;
-  //   target.classList.toggle('buttons__button--clicked');
-  //
+  toggleButton(e) { // virkjar button sem smellt er á
+    const { target } = e;
+    target.classList.toggle('buttons__button--clicked');
+
   //   this.getTiles()
   //     .then(data => this.filterLectures())
   //     .then(data => this.makeTiles());
-  // }
+  }
 
   buttonClicker() { // hlustar eftir click
     this.buttons.forEach((button) => {

@@ -25,22 +25,22 @@ export default class Lecture {
         }
         // bæta við header: mynd, titill, flokkur:
         const header = cont.previousElementSibling;
-        const image = el('div');
-        image.classList.add('lecture__header');
+        const head = el('div');
+        head.classList.add('lecture__header');
         if (thisLecture.image) {
-          image.style.backgroundImage = `url(${thisLecture.image})`;
+          head.style.backgroundImage = `url(${thisLecture.image})`;
         }
-        header.appendChild(image);
+        header.appendChild(head);
 
         const category = el('h2', thisLecture.category);
         category.classList.add('lecture__category');
         category.setAttribute('id', category);
-        image.appendChild(category);
+        head.appendChild(category);
 
         const title = el('h1', thisLecture.title);
         title.classList.add('lecture__title');
         title.setAttribute('id', title);
-        image.appendChild(title);
+        head.appendChild(title);
 
         // smíða fyrirlesturinn með hjálparföllum:
         let thing;
@@ -74,10 +74,10 @@ export default class Lecture {
         });
         const lecture = el('div', thing);
         cont.appendChild(lecture);
-      })
-      .catch((error) => {
-        console.error('villa:', error);
       });
+      // .catch((error) => {
+      //   console.error('villa:', error);
+      // });
   }
 
   load() {

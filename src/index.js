@@ -1,5 +1,5 @@
 import List from './lib/list';
-import { el, empty } from './lib/helpers';
+// import { el, empty } from './lib/helpers';
 import Lecture from './lib/lecture';
 
 document.addEventListener('DOMContentLoaded', () => {
