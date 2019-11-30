@@ -81,9 +81,9 @@ img { /* stylelint-disable-line */
     &:hover {
       background-color: $darkgrey;
     }
-  }
-}
 
-.buttonClicked {
-  background-color: $lightgreen;
+    &--clicked {
+      background-color: $lightgreen;
+    }
+  }
 }

@@ -7,73 +7,78 @@ export default class List {
   }
 
 
-  makeTile() {
+  getTiles() { // sækir alla fyrirlestrana og skilar sem json hlut
     const cont = this.container;
-    fetch('../lectures.json')
+    return fetch('../lectures.json')
       .then((response) => {
         if (!response.ok) {
           throw new Error('fetch virkar ekki');
         }
         return response.json();
       })
-      .then((data) => {
-        /* eslint-disable */
-        const lectures = data.lectures;
-        for (const lecture of lectures) {
-          /* eslint-enable */
-          const title = el('span', lecture.title);
-          title.classList.add('tile__title');
-
-          const category = el('span', lecture.category);
-          category.classList.add('tile__category');
-
-          const thumbnail = el('img');
-          if (lecture.thumbnail) {
-            thumbnail.setAttribute('src', lecture.thumbnail);
-          } else {
-            // css sér um að setja gráan bakgrunn
-          }
-          thumbnail.classList.add('tile__thumbnail');
-
-          const checkmark = el('span');
-          checkmark.classList.add('tile__checkmark');
-          if (lecture.finished) {
-            checkmark.innerHTML = '✓';
-          }
-
-          const tile = el('a', thumbnail, category, title, checkmark);
-          tile.classList.add('tile', 'a');
-          tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
-          cont.appendChild(tile);
-        }
-      })
-      .catch((error) => {
-        console.error('villa:', error);
-      });
   }
-  filterLectures(data) {
-    const clickedButtons = Array.from(this.buttons)
-      .button(i => i.classList.contains('buttonClicked'))
-      .map(i => i.dataset.category);
-    return data.button();
-  }
-  toggleButton(e) {
-    const { target } = e;
-    target.classList.toggle('buttonClicked');
-      // .then render only active tiles
-    // this.makeTile()
-    // console.log(this.filterLectures(lecture));
+
+  makeTiles(data) { // smíðar kassana (linkana) á forsíðunni
+    /* eslint-disable */
+    const lectures = data.lectures;
+    for (const lecture of lectures) {
+      /* eslint-enable */
+      const title = el('span', lecture.title);
+      title.classList.add('tile__title');
+
+      const category = el('span', lecture.category);
+      category.classList.add('tile__category');
+
+      const thumbnail = el('img');
+      if (lecture.thumbnail) {
+        thumbnail.setAttribute('src', lecture.thumbnail);
+      } else {
+        // css sér um að setja gráan bakgrunn
+      }
+      thumbnail.classList.add('tile__thumbnail');
+
+      const checkmark = el('span');
+      checkmark.classList.add('tile__checkmark');
+      if (lecture.finished) {
+        checkmark.innerHTML = '✓';
+      }
+
+      const tile = el('a', thumbnail, category, title, checkmark);
+      tile.classList.add('tile', 'a');
+      tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
+      cont.appendChild(tile);
     }
-  buttonClicker() {
+  }
+
+  filterLectures(data) { // býr til lista af fyrirlestrum með sama category og button sem var valinn
+    const clickedButtons = Array.from(this.buttons)
+      .filter(i => i.classList.contains('buttons__button--clicked'))
+      .map(i => i.dataset.category);
+    console.log(clickedButtons);
+    return data.filter(i => clickedButtons.indexOf(i.category) >= 0 || i => i.clickedButtons.length === 0);
+  }
+
+
+  toggleButton(e) { // virkjar button sem smellt er á
+    const { target } = e;
+    target.classList.toggle('buttons__button--clicked');
+
+    // this.getTiles()
+    //   .then(data => this.filterLectures())
+    //   .then(data => this.makeTiles());
+  }
+
+  buttonClicker() { // hlustar eftir click
     this.buttons.forEach((button) => {
-      button.addEventListener('click', this.toggleButton.bind(this));
+      button.addEventListener('click', this.toggleButton);
     });
   }
 
-
-  load() {
+  load() { // býr til forsíðuna
     empty(this.container);
-    this.makeTile();
+    this.getTiles()
+      .then(data => this.filterLectures(data))
+      .then(data => this.makeTiles(data))
     this.buttonClicker();
   }
 }

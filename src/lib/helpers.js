@@ -6,6 +6,7 @@ export function empty(element) {
 
 export function el(name, ...children) {
   const element = document.createElement(name);
+
   if (Array.isArray(children)) {
     children.forEach((child) => {
       if (typeof child === 'string') {
@@ -15,13 +16,13 @@ export function el(name, ...children) {
       }
     });
   }
+
   return element;
 }
 
 // smíða hlutina í fyrirlestur.html:
 function thing(type, ...data) {
   const stuff = el('div', ...data);
-  // stuff.classList.add('thing__stuff');
   const allthethings = el('div', stuff);
   allthethings.classList.add('thing', `thing--${type}`);
   return allthethings;

@@ -3,7 +3,6 @@ import {
 } from './helpers';
 // vantar að sjá um kláraða fyrirlestra
 
-// tilraun:
 export default class Lecture {
   constructor() {
     this.container = document.querySelector('.lecture');
@@ -24,6 +23,7 @@ export default class Lecture {
         if (!thisLecture) {
           throw new Error('fann ekki fyrirlestur');
         }
+        // bæta við header: mynd, titill, flokkur:
         const header = cont.previousElementSibling;
         const image = el('div');
         image.classList.add('lecture__header');
@@ -42,6 +42,7 @@ export default class Lecture {
         title.setAttribute('id', title);
         image.appendChild(title);
 
+        // smíða fyrirlesturinn með hjálparföllum:
         let thing;
         thisLecture.content.forEach((item) => {
           switch (item.type) {
@@ -71,7 +72,6 @@ export default class Lecture {
           }
           cont.appendChild(thing);
         });
-
         const lecture = el('div', thing);
         cont.appendChild(lecture);
       })
