@@ -38,11 +38,11 @@ img { /* stylelint-disable-line */
 }
 
 .header {
+  text-align: center;
   background-image: url("../img/header.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  text-align: center;
-  box-shadow: inset 0 0 1000px rgba(255, 255, 255, .6);
+  box-shadow: inset 0 0 1000px rgba(255, 255, 255, 0.6);
 
   &__title {
     padding-bottom: $gutter*3;
@@ -64,16 +64,16 @@ img { /* stylelint-disable-line */
   justify-content: center;
 
   &__button {
+    padding: $gutter/2 $gutter;
     margin-right: $gutter;
     margin-left: $gutter;
-    padding: $gutter/2 $gutter;
 
     font-family: $headerfont;
     font-size: $fontsize*1.5;
     font-weight: bold;
 
-    background-color: #ccc;
     color: $black;
+    background-color: #ccc;
     border-radius: 16px;
 
     transition: background-color $trans ease-in-out;
