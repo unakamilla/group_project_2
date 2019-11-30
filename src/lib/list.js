@@ -6,7 +6,6 @@ export default class List {
     this.buttons = document.querySelectorAll('.buttons__button');
   }
 
-
   makeTiles() { // sækir alla fyrirlestrana og skilar sem json hlut
     const cont = this.container;
     return fetch('../lectures.json')
@@ -45,8 +44,7 @@ export default class List {
           tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
           cont.appendChild(tile);
         }
-
-      })
+      });
   }
 
   filterLectures(data) { // býr til lista af fyrirlestrum með sama category og button sem var valinn
@@ -54,9 +52,9 @@ export default class List {
       .filter(i => i.classList.contains('buttons__button--clicked'))
       .map(i => i.dataset.category);
     console.log(clickedButtons);
-    // return data.filter(i => clickedButtons.indexOf(i.category) >= 0 || i => i.clickedButtons.length === 0);
+    // return data.filter(i => clickedButtons.indexOf(i.category) >= 0
+    // || i => i.clickedButtons.length === 0);
   }
-
 
   // toggleButton(e) { // virkjar button sem smellt er á
   //   const { target } = e;
@@ -75,7 +73,7 @@ export default class List {
 
   load() { // býr til forsíðuna
     empty(this.container);
-    this.makeTiles()
+    this.makeTiles();
     this.buttonClicker();
   }
 }
