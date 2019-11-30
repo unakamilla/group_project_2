@@ -7,7 +7,7 @@ export default class List {
   }
 
 
-  getTiles() { // sækir alla fyrirlestrana og skilar sem json hlut
+  makeTiles() { // sækir alla fyrirlestrana og skilar sem json hlut
     const cont = this.container;
     return fetch('../lectures.json')
       .then((response) => {
@@ -16,38 +16,37 @@ export default class List {
         }
         return response.json();
       })
-  }
+      .then((data) => {
+        const lectures = data.lectures;
+        for (const lecture of lectures) {
+          /* eslint-enable */
+          const title = el('span', lecture.title);
+          title.classList.add('tile__title');
 
-  makeTiles(data) { // smíðar kassana (linkana) á forsíðunni
-    /* eslint-disable */
-    const lectures = data.lectures;
-    for (const lecture of lectures) {
-      /* eslint-enable */
-      const title = el('span', lecture.title);
-      title.classList.add('tile__title');
+          const category = el('span', lecture.category);
+          category.classList.add('tile__category');
 
-      const category = el('span', lecture.category);
-      category.classList.add('tile__category');
+          const thumbnail = el('img');
+          if (lecture.thumbnail) {
+            thumbnail.setAttribute('src', lecture.thumbnail);
+          } else {
+            // css sér um að setja gráan bakgrunn
+          }
+          thumbnail.classList.add('tile__thumbnail');
 
-      const thumbnail = el('img');
-      if (lecture.thumbnail) {
-        thumbnail.setAttribute('src', lecture.thumbnail);
-      } else {
-        // css sér um að setja gráan bakgrunn
-      }
-      thumbnail.classList.add('tile__thumbnail');
+          const checkmark = el('span');
+          checkmark.classList.add('tile__checkmark');
+          if (lecture.finished) {
+            checkmark.innerHTML = '✓';
+          }
 
-      const checkmark = el('span');
-      checkmark.classList.add('tile__checkmark');
-      if (lecture.finished) {
-        checkmark.innerHTML = '✓';
-      }
+          const tile = el('a', thumbnail, category, title, checkmark);
+          tile.classList.add('tile', 'a');
+          tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
+          cont.appendChild(tile);
+        }
 
-      const tile = el('a', thumbnail, category, title, checkmark);
-      tile.classList.add('tile', 'a');
-      tile.setAttribute('href', `../fyrirlestur.html?slug=${lecture.slug}`);
-      cont.appendChild(tile);
-    }
+      })
   }
 
   filterLectures(data) { // býr til lista af fyrirlestrum með sama category og button sem var valinn
@@ -55,18 +54,18 @@ export default class List {
       .filter(i => i.classList.contains('buttons__button--clicked'))
       .map(i => i.dataset.category);
     console.log(clickedButtons);
-    return data.filter(i => clickedButtons.indexOf(i.category) >= 0 || i => i.clickedButtons.length === 0);
+    // return data.filter(i => clickedButtons.indexOf(i.category) >= 0 || i => i.clickedButtons.length === 0);
   }
 
 
-  toggleButton(e) { // virkjar button sem smellt er á
-    const { target } = e;
-    target.classList.toggle('buttons__button--clicked');
-
-    // this.getTiles()
-    //   .then(data => this.filterLectures())
-    //   .then(data => this.makeTiles());
-  }
+  // toggleButton(e) { // virkjar button sem smellt er á
+  //   const { target } = e;
+  //   target.classList.toggle('buttons__button--clicked');
+  //
+  //   this.getTiles()
+  //     .then(data => this.filterLectures())
+  //     .then(data => this.makeTiles());
+  // }
 
   buttonClicker() { // hlustar eftir click
     this.buttons.forEach((button) => {
@@ -76,9 +75,7 @@ export default class List {
 
   load() { // býr til forsíðuna
     empty(this.container);
-    this.getTiles()
-      .then(data => this.filterLectures(data))
-      .then(data => this.makeTiles(data))
+    this.makeTiles()
     this.buttonClicker();
   }
 }
